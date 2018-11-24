@@ -1,0 +1,9 @@
+version: "3.3"
+services:
+  demo-service:
+    build: .
+    ports:
+      - 4040:4040
+      - 8888:8888
+      - 8080:8080
+    command: bash -c "startup_script.sh && sleep infinity"
