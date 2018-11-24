@@ -1,6 +1,7 @@
 # Tangez Datalake Demo
 
 ## Usage
+* `git clone https://github.com/alpeshpandya/tangez-data-late-demo.git`
 * `chmod +x run_demo.sh`
 * `./run_demo.sh`
 
