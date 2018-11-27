@@ -27,6 +27,11 @@ RUN tar xvzf spark-2.1.1-bin-hadoop2.7.tgz
 RUN mv spark-2.1.1-bin-hadoop2.7 spark
 
 ENV SPARK_HOME $HOME/spark
+ENV SPARK_MASTER_WEBUI_PORT 4040
+ENV SPARK_MASTER_HOST localhost
+ENV PATH $SPARK_HOME/bin:$PATH
+ENV PYSPARK_DRIVER_PYTHON /home/guest/anaconda2/bin/jupyter
+ENV PYSPARK_DRIVER_PYTHON_OPTS 'notebook --ip='\''*'\'''
 
 #Install Kafka
 RUN wget http://mirror.reverse.net/pub/apache/kafka/2.1.0/kafka_2.11-2.1.0.tgz
@@ -46,6 +51,7 @@ RUN conda install jupyter -y
 
 #Install Kafka Python module
 RUN pip install kafka-python
+RUN pip install Faker
 
 USER root
 

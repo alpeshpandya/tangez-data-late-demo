@@ -1,4 +1,4 @@
-version: "3.3"
+version: "2.3"
 services:
   demo-service:
     build: .
@@ -7,3 +7,8 @@ services:
       - 8888:8888
       - 8080:8080
     command: bash -c "startup_script.sh && sleep infinity"
+    volumes:
+      - ./data:/home/guest/data
+      - ./notebooks:/home/guest/notebooks
+    mem_reservation: 32m
+    cpu_count: 4
