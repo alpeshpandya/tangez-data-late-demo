@@ -19,4 +19,4 @@ airflow scheduler -D
 airflow webserver -D
 
 rm -rf /home/guest/.local
-su - guest -c "export PYSPARK_DRIVER_PYTHON=/home/guest/anaconda2/bin/jupyter && export PYSPARK_DRIVER_PYTHON_OPTS='notebook --ip='\''*'\''' && pyspark --master spark://localhost:7077"
+su - guest -c "export PYSPARK_DRIVER_PYTHON=/home/guest/anaconda2/bin/jupyter && export PYSPARK_DRIVER_PYTHON_OPTS='notebook --ip='\''*'\''' && pyspark --master spark://localhost:7077 --packages com.datastax.spark:spark-cassandra-connector_2.11:2.0.0-M3 --conf spark.cassandra.connection.host=localhost"
