@@ -46,8 +46,9 @@ RUN bash Anaconda2-4.4.0-Linux-x86_64.sh -b
 ENV PATH $HOME/anaconda2/bin:$PATH
 RUN conda install python=2.7.10 -y
 
-#Install Jupyer notebook + Toree Scala kernel
-RUN conda install jupyter -y 
+#Install Jupyer notebook + pyspark
+RUN conda install jupyter -y
+RUN conda install pyspark -y
 
 #Install Kafka Python module
 RUN pip install kafka-python

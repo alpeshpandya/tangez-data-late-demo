@@ -4,6 +4,6 @@ docker-compose down
 docker-compose build
 docker-compose up -d
 echo "Starting services..."
-sleep 50
+sleep 300
 echo "Services should be up. Logs..."
 docker-compose logs

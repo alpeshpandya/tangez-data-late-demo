@@ -5,12 +5,18 @@ services:
     ports:
       - 4040:4040
       - 4041:4041
+      - 4042:4042
+      - 4043:4043
+      - 4044:4044
       - 8888:8888
       - 8080:8080
+      - 8081:8081
       - 9042:9042
+      - 18080:18080
     command: bash -c "startup_script.sh && sleep infinity"
     volumes:
       - ./data:/home/guest/data
       - ./notebooks:/home/guest/notebooks
-    mem_reservation: 32m
+      - ./spark:/home/guest/spark/src
+    mem_reservation: 12g
     cpu_count: 4
