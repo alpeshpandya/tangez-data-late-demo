@@ -3,6 +3,9 @@
 service sshd start
 chmod -R 777 /var/lib/cassandra
 chmod -R 777 /var/log/cassandra
+
+sed -i -e 's/rpc_address: localhost/rpc_address: 0.0.0.0/g' /etc/cassandra/conf/cassandra.yaml
+sed -i -e 's/# broadcast_rpc_address: 1.2.3.4/broadcast_rpc_address: localhost/g' /etc/cassandra/conf/cassandra.yaml
 su guest cassandra &
 
 su guest $HOME/kafka/bin/zookeeper-server-start.sh $HOME/kafka/config/zookeeper.properties  > /home/guest/zookeeper.log 2>&1 &
